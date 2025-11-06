@@ -24,8 +24,9 @@
    </audio>
 </body>
   <script>
-        window.onload('load', async () => {
+    window.onload = async () => {
       try {
+        const audio = document.getElementById('alarm');
         audio.volume = 1.0;
         audio.muted = false;
         const playPromise = audio.play();
@@ -37,6 +38,6 @@
       } catch (err) {
         console.log('Erro ao tentar tocar:', err);
       }
-    });
+    };
   </script>
 </html>
