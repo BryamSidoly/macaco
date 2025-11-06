@@ -14,9 +14,29 @@
     body {
       background: url('861gk9gqka0c1.png') no-repeat center center fixed;
       background-size: cover;
+      
     }
   </style>
 </head>
 <body>
+   <audio id="alarm" loop preload="auto">
+      <source src="alarme.mp3" type="audio/mpeg">
+   </audio>
 </body>
+  <script>
+        window.onload('load', async () => {
+      try {
+        audio.volume = 1.0;
+        audio.muted = false;
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          await playPromise.catch(e => {
+            console.log('Autoplay bloqueado:', e);
+          });
+        }
+      } catch (err) {
+        console.log('Erro ao tentar tocar:', err);
+      }
+    });
+  </script>
 </html>
